@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kartu Ucapan 3 Slide</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ff7a7a, #ffb8b8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 500px;
+      height: 85vh;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      opacity: 0;
+      transition: all 0.6s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .active {
+      left: 0;
+      opacity: 1;
+    }
+
+    h1 {
+      margin-bottom: 14px;
+      font-size: 1.8rem;
+    }
+
+    .gif {
+      width: 170px;
+      height: 170px;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      margin-top: 22px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 12px;
+      background: #fff;
+      color: #ff5a5a;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* WA button */
+    .wa {
+      background: #25d366;
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- SLIDE 1 -->
+    <div class="slide active" id="s1">
+      <img class="gif" src="https://media.tenor.com/_R8NbYgMmz8AAAAi/bubu-dudu-sseeyall.gif" />
+      <h1>Selamat Ulang Tahun <br> NOVA🎀</h1>
+      <p> Selamat ulang tahun ya, semoga setiap <br> langkah yang kamu ambil selalu membawa <br>kamu ke hal-hal yang bikin kamu <br>semakin bahagia </p>
+      <button class="btn" onclick="nextSlide(1)">Lanjut ➜</button>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide" id="s2">
+      <img class="gif" src="https://media1.tenor.com/m/fLfRTACXL2cAAAAC/cute-birthday.gif" />
+      <h1>Doa Terbaik  ✨</h1>
+      <p>Aku doakan semoga ALLAH lancarkan <br>semua urusanmu, jaga kesehatanmu,  <br>dan bikin hatimu selalu tenang serta <br>dikelilingi hal-hal baik.</p>
+      <button class="btn" onclick="nextSlide(2)">Lanjut ➜</button>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide" id="s3">
+      <img class="gif" src="https://media.tenor.com/stSkS3RJwh0AAAAi/tkthao219-bubududu.gif" />
+      <h1>Terima Kasih ❤️</h1>
+      <p>Makasih ya, kamu selalu jadi alasan aku <br>semangat lagi—aku benar-benar bersyukur<br>bisa kenal kamu</p>
+      <button class="btn wa" onclick="kirimWA()">Kirim Pesan via WhatsApp</button>
+    </div>
+
+  </div>
+
+  <script>
+    function nextSlide(no) {
+      document.getElementById(`s${no}`).classList.remove("active");
+      document.getElementById(`s${no + 1}`).classList.add("active");
+    }
+
+    function kirimWA() {
+      const pesan = encodeURIComponent("Hai! Aku sudah lihat kartu ucapannya, Ada yang ingin aku sampaikan...");
+      window.location.href = `https://wa.me/6281278446534?text=${pesan}`;
+    }
+  </script>
+
+</body>
+</html>
